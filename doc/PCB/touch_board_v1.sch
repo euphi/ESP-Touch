@@ -1,0 +1,161 @@
+EESchema Schematic File Version 2
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:MyKicadLibraries
+EELAYER 25 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L TEST TP?
+U 1 1 589F8249
+P 7450 3050
+F 0 "TP?" H 7450 3350 50  0000 C BNN
+F 1 "TEST" H 7450 3300 50  0000 C CNN
+F 2 "" H 7450 3050 50  0000 C CNN
+F 3 "" H 7450 3050 50  0000 C CNN
+	1    7450 3050
+	0    1    1    0   
+$EndComp
+$Comp
+L MPR121Q U?
+U 1 1 589F839A
+P 6750 3200
+F 0 "U?" H 6750 2550 40  0000 C CNN
+F 1 "MPR121Q" H 6750 3850 40  0000 C CNN
+F 2 "" H 6600 3200 60  0000 C CNN
+F 3 "" H 6600 3200 60  0000 C CNN
+	1    6750 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F85D5
+P 7450 3750
+F 0 "TP?" H 7450 4050 50  0000 C BNN
+F 1 "TEST" H 7450 4000 50  0000 C CNN
+F 2 "" H 7450 3750 50  0000 C CNN
+F 3 "" H 7450 3750 50  0000 C CNN
+	1    7450 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F861F
+P 7450 3650
+F 0 "TP?" H 7450 3950 50  0000 C BNN
+F 1 "TEST" H 7450 3900 50  0000 C CNN
+F 2 "" H 7450 3650 50  0000 C CNN
+F 3 "" H 7450 3650 50  0000 C CNN
+	1    7450 3650
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F8643
+P 7450 3550
+F 0 "TP?" H 7450 3850 50  0000 C BNN
+F 1 "TEST" H 7450 3800 50  0000 C CNN
+F 2 "" H 7450 3550 50  0000 C CNN
+F 3 "" H 7450 3550 50  0000 C CNN
+	1    7450 3550
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F8668
+P 7450 3450
+F 0 "TP?" H 7450 3750 50  0000 C BNN
+F 1 "TEST" H 7450 3700 50  0000 C CNN
+F 2 "" H 7450 3450 50  0000 C CNN
+F 3 "" H 7450 3450 50  0000 C CNN
+	1    7450 3450
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F8692
+P 7450 3350
+F 0 "TP?" H 7450 3650 50  0000 C BNN
+F 1 "TEST" H 7450 3600 50  0000 C CNN
+F 2 "" H 7450 3350 50  0000 C CNN
+F 3 "" H 7450 3350 50  0000 C CNN
+	1    7450 3350
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F86C1
+P 7450 3250
+F 0 "TP?" H 7450 3550 50  0000 C BNN
+F 1 "TEST" H 7450 3500 50  0000 C CNN
+F 2 "" H 7450 3250 50  0000 C CNN
+F 3 "" H 7450 3250 50  0000 C CNN
+	1    7450 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L TEST TP?
+U 1 1 589F86F1
+P 7450 3150
+F 0 "TP?" H 7450 3450 50  0000 C BNN
+F 1 "TEST" H 7450 3400 50  0000 C CNN
+F 2 "" H 7450 3150 50  0000 C CNN
+F 3 "" H 7450 3150 50  0000 C CNN
+	1    7450 3150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7250 3750 7450 3750
+Wire Wire Line
+	7250 3650 7450 3650
+Wire Wire Line
+	7450 3550 7250 3550
+Wire Wire Line
+	7250 3450 7450 3450
+Wire Wire Line
+	7450 3350 7250 3350
+Wire Wire Line
+	7250 3250 7450 3250
+Wire Wire Line
+	7450 3150 7250 3150
+Wire Wire Line
+	7250 3050 7450 3050
+$EndSCHEMATC
