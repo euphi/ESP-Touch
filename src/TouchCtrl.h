@@ -18,9 +18,11 @@ public:
 	TouchCtrl();
 	virtual ~TouchCtrl();
 	void setup();
+	void loop();
 
 	// OLEDFrame
 	virtual void drawFrame(OLEDDisplay& display,  OLEDDisplayUiState& state, int16_t x, int16_t y) override;
+	virtual const char * getFrameTitle() const override {return "TouchData";}
 
 	// OLEDOverlay
 	virtual void drawOverlay(OLEDDisplay& display,  OLEDDisplayUiState& state, uint8_t idx) override;

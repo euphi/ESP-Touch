@@ -63,8 +63,14 @@ void TouchCtrl::setup() {
 	    MPR121.updateTouchData();
 }
 
+void TouchCtrl::loop() {
+	static uint32_t next_read = 0;
+	if (millis() > next_read) {
+		readRawInputs();
+		next_read = millis() + 120;
+	}
+}
 void TouchCtrl::readRawInputs(){
-    int i;
 
     if(MPR121.touchStatusChanged()) MPR121.updateTouchData();
     MPR121.updateBaselineData();
@@ -72,44 +78,39 @@ void TouchCtrl::readRawInputs(){
 
 
     Serial.print("TOUCH: ");
-    for(i=0; i<13; i++){          // 13 touch values
+    for(uint_fast8_t i=0; i<13; i++){          // 13 touch values
       Serial.print(MPR121.getTouchData(i), DEC);
       if(i<12) Serial.print(" ");
 
     }
     Serial.println();
 
-    Serial.print("FDAT: ");
-    for(i=0; i<13; i++){          // 13 filtered values
-      Serial.print(MPR121.getFilteredData(i), DEC);
-      if(i<12) Serial.print(" ");
-    }
-    Serial.println();
-
-    Serial.print("BVAL: ");
-    for(i=0; i<13; i++){          // 13 baseline values
-      Serial.print(MPR121.getBaselineData(i), DEC);
-      if(i<12) Serial.print(" ");
-    }
-    Serial.println();
-
-    Serial.print("DIFF: ");
-    for(i=0; i<13; i++){          // 13 value pairs
-      Serial.print(MPR121.getBaselineData(i)-MPR121.getFilteredData(i), DEC);
-      if(i<12) Serial.print(" ");
-    }
-    Serial.println();
+//    Serial.print("FDAT: ");
+//    for(uint_fast8_t i=0; i<13; i++){          // 13 filtered values
+//      Serial.print(MPR121.getFilteredData(i), DEC);
+//      if(i<12) Serial.print(" ");
+//    }
+//    Serial.println();
+//
+//    Serial.print("BVAL: ");
+//    for(uint_fast8_t i=0; i<13; i++){          // 13 baseline values
+//      Serial.print(MPR121.getBaselineData(i), DEC);
+//      if(i<12) Serial.print(" ");
+//    }
+//    Serial.println();
+//
+//    Serial.print("DIFF: ");
+//    for(uint_fast8_t i=0; i<13; i++){          // 13 value pairs
+//      Serial.print(MPR121.getBaselineData(i)-MPR121.getFilteredData(i), DEC);
+//      if(i<12) Serial.print(" ");
+//    }
+//    Serial.println();
 
 }
 
 void TouchCtrl::drawFrame(OLEDDisplay& display, OLEDDisplayUiState& state, int16_t x, int16_t y) {
-	static uint32_t next_read = 0;
-	if (millis() > next_read) {
-		readRawInputs();
-		next_read = millis() + 250;
-	}
-
 	display.setFont(ArialMT_Plain_10);
+	display.setTextAlignment(TEXT_ALIGN_LEFT);
 	bool blink = (millis() >> 8) % 2;
 
 	for (uint_fast8_t i=0;i<=3;i++) {
@@ -126,6 +127,6 @@ void TouchCtrl::drawFrame(OLEDDisplay& display, OLEDDisplayUiState& state, int16
 }
 
 void TouchCtrl::drawOverlay(OLEDDisplay& display, OLEDDisplayUiState& state, uint8_t idx) {
-	display.setFont(ArialMT_Plain_16);
-	display.drawString(25,0,"Touch Ctrl");
+//	display.setFont(ArialMT_Plain_16);
+//	display.drawString(25,0,"Touch Ctrl");
 }
