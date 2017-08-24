@@ -6,25 +6,26 @@
 #include "OLEDOverlay.h"
 #include "ThermostatCtrl.h"
 #include "TouchCtrl.h"
+#include "LedCtrl.h"
 
 
-class Atm_TouchMenu: public Machine, public OLEDOverlay {
+class Atm_TouchMenu: public Machine {
 
  public:
-  enum { SHOWTEMP, EDITTEMP, TEMP_UP, TEMP_DOWN, SETWHITELIGHT, SETRGB1, SETRGB2 }; // STATES
+  enum { SHOWTEMP, EDITTEMP, TEMP_UP, TEMP_DOWN, SETMODE, MODE_UP, MODE_DOWN, SHOW_DEBUG }; // STATES
   enum { EVT_TIMER_REPEAT, EVT_TIMEOUT, EVT_BUTTONENTER, EVT_BUTTONRIGHT, EVT_BUTTONLEFT, EVT_BUTTONUP, EVT_BUTTONUP_REL, EVT_BUTTONDOWN, EVT_BUTTONDOWN_REL, ELSE }; // EVENTS
-  Atm_TouchMenu(OLEDDisplayUi& _ui, ThermostatCtrl& _th, TouchCtrl& _to ) :
-	  Machine(), ui(_ui), thermo(_th), touch(_to) {};
+  Atm_TouchMenu(OLEDDisplayUi& _ui, ThermostatCtrl& _th, LedCtrl& _led, TouchCtrl& _to ) :
+	  Machine(), ui(_ui), thermo(_th), led(_led), touch(_to) {};
   Atm_TouchMenu& begin( void );
   Atm_TouchMenu& trace( Stream & stream );
   Atm_TouchMenu& trigger( int event );
   int state( void );
 
-  void drawOverlay(OLEDDisplay& display,  OLEDDisplayUiState& state, uint8_t idx) override;
-
+  static const uint16_t repeat_delay = 300; //ms
 
  private:
-  enum { ENT_SHOWTEMP, EXT_SHOWTEMP, ENT_EDITTEMP, LP_EDITTEMP, EXT_EDITTEMP, ENT_TEMP_UP, ENT_TEMP_DOWN, ENT_SETWHITELIGHT, LP_SETWHITELIGHT, EXT_SETWHITELIGHT, ENT_SETRGB1, LP_SETRGB1, EXT_SETRGB1, ENT_SETRGB2, LP_SETRGB2, EXT_SETRGB2 }; // ACTIONS
+    enum  ETouchButton {BUT_DOWN = 0 , BUT_RIGHT, BUT_UP, BUT_LEFT, BUT_ENTER};
+  enum { ENT_SHOWTEMP, EXT_SHOWTEMP, ENT_EDITTEMP, EXT_EDITTEMP, ENT_TEMP_UP, ENT_TEMP_DOWN, ENT_SETMODE, ENT_MODE_UP, ENT_MODE_DOWN, ENT_SHOW_DEBUG }; // ACTIONS
   int event( int id ); 
   void action( int id );
   atm_timer_millis menu_timer, repeat_timer;
@@ -32,6 +33,7 @@ class Atm_TouchMenu: public Machine, public OLEDOverlay {
   OLEDDisplayUi& ui;
   ThermostatCtrl& thermo;
   TouchCtrl& touch;
+  LedCtrl& led;
 
 
 };
@@ -43,14 +45,13 @@ Automaton::ATML::begin - Automaton Markup Language
 <machines>
   <machine name="Atm_TouchMenu">
     <states>
-      <SHOWTEMP index="0" on_enter="ENT_SHOWTEMP" on_loop="LP_SHOWTEMP">
+      <SHOWTEMP index="0" on_enter="ENT_SHOWTEMP" on_exit="EXT_SHOWTEMP">
         <EVT_TIMEOUT>SHOWTEMP</EVT_TIMEOUT>
-        <EVT_BUTTONRIGHT>SETWHITELIGHT</EVT_BUTTONRIGHT>
-        <EVT_BUTTONLEFT>SETRGB2</EVT_BUTTONLEFT>
+        <EVT_BUTTONRIGHT>SETMODE</EVT_BUTTONRIGHT>
       </SHOWTEMP>
-      <EDITTEMP index="1" on_enter="ENT_EDITTEMP" on_loop="LP_EDITTEMP" on_exit="EXT_EDITTEMP">
+      <EDITTEMP index="1" on_enter="ENT_EDITTEMP" on_exit="EXT_EDITTEMP">
         <EVT_TIMEOUT>SHOWTEMP</EVT_TIMEOUT>
-        <EVT_BUTTONRIGHT>SETWHITELIGHT</EVT_BUTTONRIGHT>
+        <EVT_BUTTONRIGHT>SETMODE</EVT_BUTTONRIGHT>
         <EVT_BUTTONLEFT>SHOWTEMP</EVT_BUTTONLEFT>
         <EVT_BUTTONUP>TEMP_UP</EVT_BUTTONUP>
         <EVT_BUTTONDOWN>TEMP_DOWN</EVT_BUTTONDOWN>
@@ -63,27 +64,24 @@ Automaton::ATML::begin - Automaton Markup Language
         <EVT_TIMER_REPEAT>TEMP_DOWN</EVT_TIMER_REPEAT>
         <EVT_BUTTONDOWN_REL>EDITTEMP</EVT_BUTTONDOWN_REL>
       </TEMP_DOWN>
-      <SETWHITELIGHT index="4" on_enter="ENT_SETWHITELIGHT" on_loop="LP_SETWHITELIGHT" on_exit="EXT_SETWHITELIGHT">
+      <SETMODE index="4" on_enter="ENT_SETMODE">
         <EVT_TIMEOUT>SHOWTEMP</EVT_TIMEOUT>
-        <EVT_BUTTONRIGHT>SETRGB1</EVT_BUTTONRIGHT>
+        <EVT_BUTTONRIGHT>SHOW_DEBUG</EVT_BUTTONRIGHT>
         <EVT_BUTTONLEFT>SHOWTEMP</EVT_BUTTONLEFT>
-        <EVT_BUTTONUP>SETWHITELIGHT</EVT_BUTTONUP>
-        <EVT_BUTTONDOWN>SETWHITELIGHT</EVT_BUTTONDOWN>
-      </SETWHITELIGHT>
-      <SETRGB1 index="5" on_enter="ENT_SETRGB1" on_loop="LP_SETRGB1" on_exit="EXT_SETRGB1">
+        <EVT_BUTTONUP>MODE_UP</EVT_BUTTONUP>
+        <EVT_BUTTONDOWN>MODE_DOWN</EVT_BUTTONDOWN>
+      </SETMODE>
+      <MODE_UP index="5" on_enter="ENT_MODE_UP">
+        <EVT_TIMER_REPEAT>MODE_UP</EVT_TIMER_REPEAT>
+        <EVT_BUTTONUP_REL>SETMODE</EVT_BUTTONUP_REL>
+      </MODE_UP>
+      <MODE_DOWN index="6" on_enter="ENT_MODE_DOWN">
+        <EVT_TIMER_REPEAT>MODE_DOWN</EVT_TIMER_REPEAT>
+        <EVT_BUTTONDOWN_REL>SETMODE</EVT_BUTTONDOWN_REL>
+      </MODE_DOWN>
+      <SHOW_DEBUG index="7" on_enter="ENT_SHOW_DEBUG">
         <EVT_TIMEOUT>SHOWTEMP</EVT_TIMEOUT>
-        <EVT_BUTTONRIGHT>SETRGB2</EVT_BUTTONRIGHT>
-        <EVT_BUTTONLEFT>SETWHITELIGHT</EVT_BUTTONLEFT>
-        <EVT_BUTTONUP>SETRGB1</EVT_BUTTONUP>
-        <EVT_BUTTONDOWN>SETRGB1</EVT_BUTTONDOWN>
-      </SETRGB1>
-      <SETRGB2 index="6" on_enter="ENT_SETRGB2" on_loop="LP_SETRGB2" on_exit="EXT_SETRGB2">
-        <EVT_TIMEOUT>SHOWTEMP</EVT_TIMEOUT>
-        <EVT_BUTTONRIGHT>SHOWTEMP</EVT_BUTTONRIGHT>
-        <EVT_BUTTONLEFT>SETRGB1</EVT_BUTTONLEFT>
-        <EVT_BUTTONUP>SETRGB2</EVT_BUTTONUP>
-        <EVT_BUTTONDOWN>SETRGB2</EVT_BUTTONDOWN>
-      </SETRGB2>
+      </SHOW_DEBUG>
     </states>
     <events>
       <EVT_TIMER_REPEAT index="0" access="PRIVATE"/>

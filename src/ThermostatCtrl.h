@@ -34,6 +34,12 @@ public:
 	void increase(){setTemp += 1;updateSetTemp();}
 	void decrease(){setTemp -= 1;updateSetTemp();}
 
+	enum EThermostatMode {Manual_ON = 0, Manual_OFF, Auto_ON, Auto_OFF, LAST};
+	const String mode_id[LAST] = {"Manual_ON", "Manual_OFF", "Auto_ON", "Auto_OFF"};
+
+	EThermostatMode mode;
+
+
 
 private:
 	const SensorNode & sensor;

@@ -13,13 +13,16 @@
 #include <SSD1306.h>
 #include "TouchCtrl.h"
 #include "ThermostatCtrl.h"
+#include "LedCtrl.h"
 #include "Atm_TouchMenu.h"
 
 #include "Wire.h"
 #include "Automaton.h"
 
+#include "OLEDStatusIndicator.h"
+
 #define FW_NAME "TouchCtrl-Ian"
-#define FW_VERSION "0.2.4"
+#define FW_VERSION "0.2.6"
 
 /* Magic sequence for Autodetectable Binary Upload */
 const char *__FLAGGED_FW_NAME = "\xbf\x84\xe4\x13\x54" FW_NAME "\x93\x44\x6b\xa7\x75";
@@ -34,9 +37,10 @@ OLEDStatusIndicator status;
 SensorNode sensor;
 
 ThermostatCtrl thermo(sensor);
+LedCtrl ledctrl;
 TouchCtrl touch;
 
-Atm_TouchMenu menu(ui, thermo, touch);
+Atm_TouchMenu menu(ui, thermo, ledctrl, touch);
 
 void setup() {
 	delay(200);
@@ -61,7 +65,10 @@ void setup() {
 	Homie_setFirmware(FW_NAME, FW_VERSION);
 	Homie.onEvent([](const HomieEvent& event) {status.Event(event);});
 
-	//Homie.setBroadcastHandler([](String level, String value) {LN.logf(__PRETTY_FUNCTION__,LoggerNode::INFO, "Broadcast: %s: %s", level.c_str(), value.c_str());return true;});
+	//Homie.setBroadcastHandler([](const String& level, const String& value) -> bool {status.handleBroadcast(level, value);});
+	Homie.setBroadcastHandler([](const String& level, const String& value) {LN.logf(__PRETTY_FUNCTION__,LoggerNode::INFO, "Broadcast: %s: %s", level.c_str(), value.c_str());return true;});
+
+	Serial.begin(74880);
 	Homie.setup();
 	menu.trace(Serial);
 	menu.begin();
