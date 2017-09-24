@@ -9,7 +9,7 @@ Atm_TouchMenu& Atm_TouchMenu::begin() {
   // clang-format off
   const static state_t state_table[] PROGMEM = {
     /*                     ON_ENTER  ON_LOOP       ON_EXIT  EVT_TIMER_REPEAT  EVT_TIMEOUT  EVT_BUTTONENTER  EVT_BUTTONRIGHT  EVT_BUTTONLEFT  EVT_BUTTONUP  EVT_BUTTONUP_REL  EVT_BUTTONDOWN  EVT_BUTTONDOWN_REL  ELSE */
-    /*   SHOWTEMP */   ENT_SHOWTEMP,      -1, EXT_SHOWTEMP,               -1,    SHOWTEMP,              -1,         SETMODE,             -1,     TEMP_UP,               -1,       TEMP_DOWN,                 -1,   -1,
+    /*   SHOWTEMP */   ENT_SHOWTEMP,      -1, EXT_SHOWTEMP,               -1,    SHOWTEMP,              -1,         SETMODE,     SHOW_DEBUG,     TEMP_UP,               -1,       TEMP_DOWN,                 -1,   -1,
     /*   EDITTEMP */   ENT_EDITTEMP,      -1, EXT_EDITTEMP,               -1,    SHOWTEMP,              -1,         SETMODE,       SHOWTEMP,      TEMP_UP,               -1,      TEMP_DOWN,                 -1,   -1,
     /*    TEMP_UP */    ENT_TEMP_UP,      -1,           -1,          TEMP_UP,          -1,              -1,              -1,             -1,           -1,         EDITTEMP,             -1,                 -1,   -1,
     /*  TEMP_DOWN */  ENT_TEMP_DOWN,      -1,           -1,        TEMP_DOWN,          -1,              -1,              -1,             -1,           -1,               -1,             -1,           EDITTEMP,   -1,
@@ -63,7 +63,7 @@ void Atm_TouchMenu::action( int id ) {
     	menu_timer.set(ATM_TIMER_OFF);
         return;
     case EXT_SHOWTEMP:
-    	menu_timer.set(5000);
+    	menu_timer.set(15000);
     	return;
     case ENT_EDITTEMP:
     	thermo.enableSetMode(true);

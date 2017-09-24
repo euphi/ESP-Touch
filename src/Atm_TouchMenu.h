@@ -24,7 +24,7 @@ class Atm_TouchMenu: public Machine {
   static const uint16_t repeat_delay = 300; //ms
 
  private:
-    enum  ETouchButton {BUT_DOWN = 0 , BUT_RIGHT, BUT_UP, BUT_LEFT, BUT_ENTER};
+    enum  ETouchButton {BUT_DOWN = 0 , BUT_LEFT, BUT_UP, BUT_RIGHT, BUT_ENTER};
   enum { ENT_SHOWTEMP, EXT_SHOWTEMP, ENT_EDITTEMP, EXT_EDITTEMP, ENT_TEMP_UP, ENT_TEMP_DOWN, ENT_SETMODE, ENT_MODE_UP, ENT_MODE_DOWN, ENT_SHOW_DEBUG }; // ACTIONS
   int event( int id ); 
   void action( int id );

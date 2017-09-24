@@ -22,7 +22,7 @@
 #include "OLEDStatusIndicator.h"
 
 #define FW_NAME "TouchCtrl-Ian"
-#define FW_VERSION "0.2.6"
+#define FW_VERSION "0.3.0"
 
 /* Magic sequence for Autodetectable Binary Upload */
 const char *__FLAGGED_FW_NAME = "\xbf\x84\xe4\x13\x54" FW_NAME "\x93\x44\x6b\xa7\x75";
@@ -41,6 +41,8 @@ LedCtrl ledctrl;
 TouchCtrl touch;
 
 Atm_TouchMenu menu(ui, thermo, ledctrl, touch);
+
+WS2812FX ws2812fx = WS2812FX(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ400);
 
 void setup() {
 	delay(200);
@@ -79,4 +81,6 @@ void loop() {
 	touch.loop();
     ui.update();
     automaton.run();
+
+    if (Homie.isConnected()) ws2812fx.service();
 }
