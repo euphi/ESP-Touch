@@ -42,8 +42,6 @@ TouchCtrl touch;
 
 Atm_TouchMenu menu(ui, thermo, ledctrl, touch);
 
-WS2812FX ws2812fx = WS2812FX(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ400);
-
 void setup() {
 	delay(200);
 	Serial.begin(74880);
@@ -81,6 +79,4 @@ void loop() {
 	touch.loop();
     ui.update();
     automaton.run();
-
-    if (Homie.isConnected()) ws2812fx.service();
 }

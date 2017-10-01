@@ -31,14 +31,14 @@ module trapez(l1, l2, b) {
 module segment(l1, h) {
     translate([0,0.5,0]) {
         trapez(l1,q_l_b-0.5,h-0.5);
-        lasche_l = 13;
-        translate([0,-lasche_l,0]) lasche(4,lasche_l);
+        lasche_l = 6;
+        translate([0,h-0.5,0]) lasche(q_l_b-4, lasche_l);
     }
 }
 
 module lasche_durchlass(l1,h) {
-    lasche_l = 0.5;
-    translate([0,0.2,0]) lasche(4.2,lasche_l);    
+    lasche_l = 0.8;
+    translate([0,h-(lasche_l/2),0]) lasche(q_l_b-3.9,lasche_l);    
 }
 
 
@@ -67,7 +67,7 @@ module all_straps() {
 module draw_acryl_plane() {
     // Umriss
     difference() {
-        square(q_l_b, center=true);
+        square(q_l_b+2, center=true);
         all_straps();
         square([inner_b, inner_h], center=true);
     }
@@ -75,10 +75,14 @@ module draw_acryl_plane() {
 
 module display() {
     union() {
-        color("blue") linear_extrude(2.5) square([inner_b, inner_h], center=true);
-        color("black") translate([0,0,2.5]) linear_extrude(0.1) square([inner_b_ol, inner_h_ol], center=true);
+        color("blue") linear_extrude(2.7) square([inner_b, inner_h], center=true);
+        color("black") translate([0,0,2.7]) linear_extrude(0.3) square([inner_b_ol, inner_h_ol], center=true);
     }
     
+}
+
+module display_cut() {
+    color("white",0.1) linear_extrude(3.1) square([inner_b_ol, inner_h_ol], center=true);
 }
 
 module led_ring() {
@@ -91,26 +95,49 @@ module led_ring() {
 
 module complete() {
     union() {
-        // Displayausschnitt
-        translate([0,0,6]) display(); 
+        // Display
+        translate([0,0,0]) display(); 
 
         // Abdeckung
-        translate([0,0,3.1]) color("white", 0.7) linear_extrude(3) square(q_l, center=true);
+        difference() {
+            translate([0,0,3.1]) color("white", 0.7) linear_extrude(3) square(q_l, center=true);
+            translate([0,0,3.05]) display_cut(); 
+        }
 
         // Folie
         translate([0,0,3]) color("white", 0.2) linear_extrude(0.1) color("white", 0.2)  all_segments();
-
-        //color("gray") translate([0,0,-20]) import("/home/ian/Coding/Making/Wandthermostat/Adapterring_Wand_LED.stl");
-
+        
+        // Haltplatte (mit Löchern)
         color("white", 0.5) difference() {
             linear_extrude(3) draw_acryl_plane();
-            translate([0,0,-20]) import("/home/ian/Coding/Making/Wandthermostat/Adapterring_Wand_LED.stl");
+            if (draw_2d == true) translate([0,0,-20]) import("/home/ian/Coding/Making/Wandthermostat/Adapterring_Wand_LED.stl");
         }
+
+
+        if (draw_2d != true) {
+            color("gray") translate([0,0,-20]) import("/home/ian/Coding/Making/Wandthermostat/Adapterring_Wand_LED.stl");            
+        }
+
     }    
 }
 
-//projection(cut=true) complete();
-//complete();
-translate([100,100,0]) projection(cut=true) translate([0,0,-0.5]) complete();
-translate([100,0,0]) projection(cut=true) translate([0,0,-3.05]) complete();
-translate([0,0,0]) projection(cut=true) translate([0,0,-3.2]) complete();
+module 2d_cuts() {
+  union() {   
+    //projection(cut=true) complete();
+    translate([100,100,0]) projection(cut=true) translate([0,0,-0.5]) complete();
+    translate([100,0,0]) projection(cut=true) translate([0,0,-3.05]) complete();
+    translate([0,0,0]) projection(cut=true) translate([0,0,-5.5]) complete();
+    translate([0,100,0]) projection(cut=true) translate([0,0,0]) display_cut();
+  }
+}
+
+draw_2d = false;
+//draw_2d = true;
+
+
+if (draw_2d == true) {
+    color("red") 2d_cuts();
+} else {
+    complete();
+}
+

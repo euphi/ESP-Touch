@@ -1,0 +1,21 @@
+{
+        "name": "Labor Iani",
+        "device_id": "labor",
+        "wifi": {
+                "ssid": "ARMBIAN",
+                "password": "12345678"
+        },
+        "mqtt": {
+                "host": "cubietruck",
+                "port": 1883,
+                "base_topic": "homie/",
+                "auth": false
+        },
+        "ota": {
+                "enabled": true
+        },
+        "settings": {
+                "WS2812N_Pin": 12,
+		"WS2812N_Count": 24
+        }
+}
