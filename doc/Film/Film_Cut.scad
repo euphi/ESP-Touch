@@ -1,6 +1,6 @@
 
 // Abdeckscheibe
-q_l = 80;  // Breite/Höhe Quadrat
+q_l = 85;  // Breite/Höhe Quadrat
 
 // Befestigungsscheibe
 q_l_b = 70;
@@ -29,16 +29,16 @@ module trapez(l1, l2, b) {
 }
 
 module segment(l1, h) {
-    translate([0,0.5,0]) {
-        trapez(l1,q_l_b-0.5,h-0.5);
-        lasche_l = 6;
-        translate([0,h-0.5,0]) lasche(q_l_b-4, lasche_l);
+    translate([0,0.8,0]) {
+        trapez(l1,q_l_b-1.0,h-0.8);
+        lasche_l = 7;
+        translate([0,h-0.8,0]) lasche(q_l_b-8, lasche_l);
     }
 }
 
 module lasche_durchlass(l1,h) {
-    lasche_l = 0.8;
-    translate([0,h-(lasche_l/2),0]) lasche(q_l_b-3.9,lasche_l);    
+    lasche_l = 1.8;
+    translate([0,h-(lasche_l),0]) lasche(q_l_b-7.9,lasche_l);    
 }
 
 
@@ -67,7 +67,7 @@ module all_straps() {
 module draw_acryl_plane() {
     // Umriss
     difference() {
-        square(q_l_b+2, center=true);
+        square(q_l_b+5, center=true);
         all_straps();
         square([inner_b, inner_h], center=true);
     }
@@ -132,7 +132,7 @@ module 2d_cuts() {
 }
 
 draw_2d = false;
-//draw_2d = true;
+draw_2d = true;
 
 
 if (draw_2d == true) {
