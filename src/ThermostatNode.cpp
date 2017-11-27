@@ -14,7 +14,7 @@ ThermostatNode::ThermostatNode():
 	mode(Auto_OFF)
 {
 	advertise("SetTemp").settable();
-	advertise("ThermostatMode").settable();
+	advertise("Mode").settable();
 }
 
 bool ThermostatNode::handleInput(const String& property, const HomieRange& range, const String &value) {
@@ -30,8 +30,8 @@ bool ThermostatNode::handleInput(const String& property, const HomieRange& range
 		updateSetTemp();
 		return true;
 	}
-	else if (property.equals("ThermostatMode")){
-		LN.logf(__PRETTY_FUNCTION__, LoggerNode::INFO, "New Thermostat-Mode %s.", value.c_str());
+	else if (property.equals("Mode")){
+		LN.logf(__PRETTY_FUNCTION__, LoggerNode::INFO, "New Mode %s.", value.c_str());
 		for (uint_fast8_t id=ThermostatNode::Manual_ON; id < ThermostatNode::LAST; id++)
 			if (value.equalsIgnoreCase(mode_id[id])) {
 				mode = static_cast<EThermostatMode>(id);

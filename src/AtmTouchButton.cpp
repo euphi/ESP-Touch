@@ -8,27 +8,25 @@
 #include <AtmTouchButton.h>
 #include <MPR121.h>
 
-Atm_TouchButton::Atm_TouchButton(): Atm_button() {
+
+// Important note: This class does not update the touch data, it only reads the stored states.
+//   To update data, call the following methods cyclical
+//   (the ESP_Touch example does this in the TochCtrl class)
+//
+//    if(MPR121.touchStatusChanged()) MPR121.updateTouchData();
+//    MPR121.updateBaselineData();
+//    MPR121.updateFilteredData();
+
+void Atm_TouchButton::initButton() {
+	// Nothing do to (except not calling Atm_button::initButton)
+	return;
 }
 
-int Atm_TouchButton::event( int id ) {
-  switch ( id ) {
-    case EVT_LMODE:
-      return counter_longpress.value > 0;
-    case EVT_TIMER:
-      return timer_debounce.expired( this );
-    case EVT_DELAY:
-      return timer_delay.expired( this );
-    case EVT_REPEAT:
-      return timer_repeat.expired( this );
-    case EVT_AUTO:
-      return timer_auto.expired( this );
-    case EVT_PRESS:
-      return MPR121.getTouchData( pin );
-    case EVT_RELEASE:
-    	return !MPR121.getTouchData( pin );
-    case EVT_COUNTER:
-      return counter_longpress.expired();
-  }
-  return 0;
+bool Atm_TouchButton::isPressed() {
+	return MPR121.getTouchData( pin );
 }
+
+bool Atm_TouchButton::isReleased() {
+	return !MPR121.getTouchData( pin );
+}
+

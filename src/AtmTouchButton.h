@@ -11,12 +11,11 @@
 #include <Atm_button.hpp>
 
 class Atm_TouchButton: public Atm_button {
-public:
-	Atm_TouchButton();
 
 protected:
-	int event( int id );
-
+	  virtual void initButton();
+	  virtual bool isPressed();
+	  virtual bool isReleased();
 };
 
 #endif /* SRC_ATMTOUCHBUTTON_H_ */
