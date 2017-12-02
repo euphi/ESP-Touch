@@ -29,26 +29,26 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Automaton_ID545/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Sensors_ID578/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
@@ -74,11 +74,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
@@ -86,11 +86,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
@@ -157,26 +157,26 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Automaton_ID545/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Sensors_ID578/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
@@ -202,11 +202,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
@@ -214,11 +214,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
@@ -285,26 +285,26 @@
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/variants/generic"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Automaton_ID545/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
+									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WiFi/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/lib/Sensors_ID578/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
-									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Libs/mpr121/MPR121"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit GFX Library_ID13"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoMatrix_ID215"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Adafruit NeoPixel_ID28"/>
@@ -330,11 +330,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/HomieNodeCollection/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ArduinoJson_ID64/src"/>
@@ -342,11 +342,11 @@
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESPAsyncTCP_ID305/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/AsyncMqttClient_ID346/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Bounce2_ID1106"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
-									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Ticker"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/DNSServer/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266mDNS"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266HTTPClient/src"/>
+									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/ESP8266WebServer/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/Homie/src"/>
 									<listOptionValue builtIn="false" value="${HOME}/.platformio/packages/framework-arduinoespressif8266/libraries/Wire"/>
 									<listOptionValue builtIn="false" value="${HOME}/Coding/ESP_Projects/ESP_Touch/.piolibdeps/ESP8266_SSD1306"/>

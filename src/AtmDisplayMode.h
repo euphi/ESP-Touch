@@ -31,6 +31,7 @@ class Atm_DisplayMode: public Machine {
   Atm_DisplayMode& onDec( atm_cb_push_t callback, int idx = 0 );
   Atm_DisplayMode& onInc( Machine& machine, int event = 0 );
   Atm_DisplayMode& onInc( atm_cb_push_t callback, int idx = 0 );
+  void setCurTime(int16_t curTime);
 
  private:
   enum { ENT_SHOW_TIME, LP_SHOW_TIME, ENT_SHOW_TEMP, LP_SHOW_TEMP, ENT_SET_TEMP, LP_SET_TEMP }; // ACTIONS
@@ -53,6 +54,7 @@ class Atm_DisplayMode: public Machine {
   const ThermostatNode & thermNode;
   LedMatrixNode& matrix;
   Atm_timer tempread_timer;
+  int16_t cur_time;
 
 };
 

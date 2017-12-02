@@ -45,30 +45,35 @@ Atm_TouchButton button_up;
 Atm_TouchButton button_down;
 Atm_TouchButton button_left;
 Atm_TouchButton button_right;
+Atm_led myLed;
 enum  ETouchButton {BUT_DOWN = 0 , BUT_LEFT, BUT_UP, BUT_RIGHT, BUT_ENTER}; // PINout of Touchcontroller
 
 void setup() {
-	delay(200);
 	Serial.begin(74880);
 	Serial.println("Starting..");
 	Homie.setLedPin(16, false);
 	Homie.disableResetTrigger();
-	Wire.begin(SDA, SCL);
-	Wire.setClockStretchLimit(2000);
-
-	touch.setup();
-
-	LN.setLoglevel(LoggerNode::DEBUG);
 
 	Homie_setFirmware(FW_NAME, FW_VERSION);
-	Homie.setBroadcastHandler([](const String& level, const String& value) {LN.logf(__PRETTY_FUNCTION__,LoggerNode::INFO, "Broadcast: %s: %s", level.c_str(), value.c_str());return true;});
+	Homie.setBroadcastHandler([](const String& level, const String& value) {
+		LN.logf(__PRETTY_FUNCTION__,LoggerNode::DEBUG, "Broadcast: %s: %s", level.c_str(), value.c_str());
+		atm_disp.setCurTime(value.toInt());
+		return true;
+	});
 
-	Serial.begin(74880);
+	Wire.begin(SDA, SCL);
+	Wire.setClockStretchLimit(2000);
+	touch.setup();
 	Homie.setup();
+
+	// Setup State machine
 	atm_disp.trace(Serial);
 	atm_disp.begin();
+	// ---> Callbacks Inc and Dec
 	atm_disp.onInc([]( int idx, int v, int up ) {thermo.increase();},0);
 	atm_disp.onDec([]( int idx, int v, int up ) {thermo.decrease();},0);
+
+	// --> Connect buttons as input for state machine
 	button_up.begin(BUT_UP).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_UP).trace(Serial);
 	button_down.begin(BUT_DOWN).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_DOWN).trace(Serial);
 	button_left.begin(BUT_LEFT).debounce(0).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_LEFT).trace(Serial);

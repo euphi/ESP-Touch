@@ -75,6 +75,10 @@ void Atm_DisplayMode::action( int id ) {
   }
 }
 
+void Atm_DisplayMode::setCurTime(int16_t curTime) {
+	cur_time = curTime;
+}
+
 void Atm_DisplayMode::show4DigitNumber(int16_t number, bool use3digit) {
 	if (number >= 10000 || number < 0 || (use3digit && number >= 1000)) {
 		return;
@@ -88,7 +92,7 @@ void Atm_DisplayMode::show4DigitNumber(int16_t number, bool use3digit) {
 }
 
 void Atm_DisplayMode::showTime() {
-	show4DigitNumber((millis() / 1000) % 10000);
+	show4DigitNumber(cur_time);
 }
 
 void Atm_DisplayMode::showSetTemp() {
