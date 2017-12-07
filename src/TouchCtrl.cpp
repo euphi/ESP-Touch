@@ -8,13 +8,8 @@
 #include "TouchCtrl.h"
 #include "MPR121.h"
 
-TouchCtrl::TouchCtrl() {
-	// TODO Auto-generated constructor stub
+TouchCtrl::TouchCtrl(): serialPrintData(false) {
 
-}
-
-TouchCtrl::~TouchCtrl() {
-	// TODO Auto-generated destructor stub
 }
 
 void TouchCtrl::setup() {
@@ -77,36 +72,42 @@ void TouchCtrl::readRawInputs(){
     MPR121.updateBaselineData();
     MPR121.updateFilteredData();
 
+	if (serialPrintData) {
+		Serial.print(MPR121.getError());
+		Serial.print("TOUCH: ");
+		for (uint_fast8_t i = 0; i < 13; i++) {          // 13 touch values
+			Serial.print(MPR121.getTouchData(i), DEC);
+			if (i < 12)
+				Serial.print(" ");
 
-//    Serial.print(MPR121.getError());
-//    Serial.print("TOUCH: ");
-//    for(uint_fast8_t i=0; i<13; i++){          // 13 touch values
-//      Serial.print(MPR121.getTouchData(i), DEC);
-//      if(i<12) Serial.print(" ");
-//
-//    }
-//    Serial.println();
-//
-//    Serial.print("FDAT: ");
-//    for(uint_fast8_t i=0; i<13; i++){          // 13 filtered values
-//      Serial.print(MPR121.getFilteredData(i), DEC);
-//      if(i<12) Serial.print(" ");
-//    }
-//    Serial.println();
-//
-//    Serial.print("BVAL: ");
-//    for(uint_fast8_t i=0; i<13; i++){          // 13 baseline values
-//      Serial.print(MPR121.getBaselineData(i), DEC);
-//      if(i<12) Serial.print(" ");
-//    }
-//    Serial.println();
-//
-//    Serial.print("DIFF: ");
-//    for(uint_fast8_t i=0; i<13; i++){          // 13 value pairs
-//      Serial.print(MPR121.getBaselineData(i)-MPR121.getFilteredData(i), DEC);
-//      if(i<12) Serial.print(" ");
-//    }
-//    Serial.println();
+		}
+		Serial.println();
+
+		Serial.print("FDAT: ");
+		for (uint_fast8_t i = 0; i < 13; i++) {          // 13 filtered values
+			Serial.print(MPR121.getFilteredData(i), DEC);
+			if (i < 12)
+				Serial.print(" ");
+		}
+		Serial.println();
+
+		Serial.print("BVAL: ");
+		for (uint_fast8_t i = 0; i < 13; i++) {          // 13 baseline values
+			Serial.print(MPR121.getBaselineData(i), DEC);
+			if (i < 12)
+				Serial.print(" ");
+		}
+		Serial.println();
+
+		Serial.print("DIFF: ");
+		for (uint_fast8_t i = 0; i < 13; i++) {          // 13 value pairs
+			Serial.print(MPR121.getBaselineData(i) - MPR121.getFilteredData(i),
+					DEC);
+			if (i < 12)
+				Serial.print(" ");
+		}
+		Serial.println();
+    }
 
 }
 

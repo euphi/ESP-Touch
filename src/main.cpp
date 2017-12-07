@@ -79,6 +79,7 @@ void setup() {
 	button_left.begin(BUT_LEFT).debounce(0).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_LEFT).trace(Serial);
 	button_right.begin(BUT_RIGHT).debounce(0).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_RIGHT).trace(Serial);
 
+	touch.setSerialPrintData(true); //TODO: Use HomieSetting
 }
 
 

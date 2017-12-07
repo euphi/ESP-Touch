@@ -14,9 +14,9 @@
 #define MPR121_I2C_ADDRESS 0x5A // 0x5A - 0x5D
 
 class TouchCtrl: public OLEDFrame, OLEDStatusIndicator {
+
 public:
 	TouchCtrl();
-	virtual ~TouchCtrl();
 	void setup();
 	void loop();
 
@@ -27,8 +27,13 @@ public:
 	// OLEDOverlay
 	virtual void drawOverlay(OLEDDisplay& display,  OLEDDisplayUiState& state, uint8_t idx) override;
 
+	void setSerialPrintData(bool on) {
+		serialPrintData = on;
+	}
+
 private:
 	void readRawInputs();
+	bool serialPrintData;
 
 };
 
