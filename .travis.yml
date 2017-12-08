@@ -10,7 +10,8 @@
  install:
      - pip install -U platformio
      - pwd
-     - cd euphi/ESP-Touch/lib
+     - mkdir lib
+     - cd lib
      - git clone https://github.com/BareConductive/mpr121
      - cd ..
      - pip lib update
