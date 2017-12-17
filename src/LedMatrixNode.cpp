@@ -20,6 +20,7 @@ LedMatrixNode::LedMatrixNode():
 	advertise("brightness").settable();
 	advertise("color_up").settable();
 	advertise("color_dn").settable();
+	matrix.setRotation(3);
 }
 
 uint8_t LedMatrixNode::digit[10][5] = {

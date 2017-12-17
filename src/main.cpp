@@ -7,8 +7,9 @@
 
 #include <Homie.hpp>
 
-#include <SensorNode.h>		// HTU21D Sensor
 #include <LoggerNode.h>		// Log to MQTT (Homie)
+
+#include <SensorNode.h>		// HTU21D Sensor
 #include <ThermostatNode.h> // MQTT (Homie) connection for Thermostat
 #include "LedMatrixNode.h"	// MQTT (Homie) control for 8x8 Matrix (brightness, color)
 
@@ -25,7 +26,7 @@
 
 /* Magic sequence for Autodetectable Binary Upload */
 #define FW_NAME "TouchCtrl-Ian-LED-Matrix"
-#define FW_VERSION "0.4.1"
+#define FW_VERSION "0.4.4"
 
 const char *__FLAGGED_FW_NAME = "\xbf\x84\xe4\x13\x54" FW_NAME "\x93\x44\x6b\xa7\x75";
 const char *__FLAGGED_FW_VERSION = "\x6a\x3f\x3e\x0e\xe1" FW_VERSION "\xb0\x30\x48\xd4\x1a";
@@ -45,12 +46,15 @@ Atm_TouchButton button_up;
 Atm_TouchButton button_down;
 Atm_TouchButton button_left;
 Atm_TouchButton button_right;
-Atm_led myLed;
-enum  ETouchButton {BUT_DOWN = 0 , BUT_LEFT, BUT_UP, BUT_RIGHT, BUT_ENTER}; // PINout of Touchcontroller
+//Atm_led myLed;
+
+enum  ETouchButton {BUT_UP = 0 , BUT_LEFT, BUT_DOWN, BUT_RIGHT, BUT_ENTER}; // PINout of Touchcontroller
 
 void setup() {
 	Serial.begin(74880);
 	Serial.println("Starting..");
+	Serial.flush();
+	delay(1000);
 	Homie.setLedPin(16, false);
 	Homie.disableResetTrigger();
 
@@ -61,25 +65,25 @@ void setup() {
 		return true;
 	});
 
-	Wire.begin(SDA, SCL);
-	Wire.setClockStretchLimit(2000);
+	//Wire.begin(SDA, SCL);
+	//Wire.setClockStretchLimit(2000);
 	touch.setup();
 	Homie.setup();
 
 	// Setup State machine
 	atm_disp.trace(Serial);
 	atm_disp.begin();
-	// ---> Callbacks Inc and Dec
+//	// ---> Callbacks Inc and Dec
 	atm_disp.onInc([]( int idx, int v, int up ) {thermo.increase();},0);
 	atm_disp.onDec([]( int idx, int v, int up ) {thermo.decrease();},0);
-
-	// --> Connect buttons as input for state machine
+//
+//	// --> Connect buttons as input for state machine
 	button_up.begin(BUT_UP).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_UP).trace(Serial);
 	button_down.begin(BUT_DOWN).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_DOWN).trace(Serial);
 	button_left.begin(BUT_LEFT).debounce(0).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_LEFT).trace(Serial);
 	button_right.begin(BUT_RIGHT).debounce(0).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_RIGHT).trace(Serial);
 
-	touch.setSerialPrintData(true); //TODO: Use HomieSetting
+	//touch.setSerialPrintData(true); //TODO: Use HomieSetting
 }
 
 
