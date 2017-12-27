@@ -15,7 +15,8 @@ Atm_DisplayMode::Atm_DisplayMode(const SensorNode & sens, const ThermostatNode& 
 		Machine(),
 		matrix(_matrix),
 		sensor(sens),
-		thermNode(therm)
+		thermNode(therm),
+		cur_time(9999)
 {
 	timer_read_temp.set(500);
 	timer_state_timeout.set(1000);
@@ -25,7 +26,7 @@ Atm_DisplayMode& Atm_DisplayMode::begin() {
   // clang-format off
   const static state_t state_table[] PROGMEM = {
     /*                   ON_ENTER       ON_LOOP  ON_EXIT  EVT_TIMEOUT  EVT_BUT_DOWN  EVT_BUT_UP  EVT_BUT_RIGHT  EVT_BUT_LEFT  ELSE */
-    /* SHOW_TIME */ ENT_SHOW_TIME, LP_SHOW_TIME,      -1,   SHOW_TIME,     SET_TEMP,   SET_TEMP,      SET_TEMP,    SHOW_TEMP,   -1,
+    /* SHOW_TIME */ ENT_SHOW_TIME, LP_SHOW_TIME,      -1,   -1,			   SET_TEMP,   SET_TEMP,      SET_TEMP,    SHOW_TEMP,   -1,
     /* SHOW_TEMP */ ENT_SHOW_TEMP, LP_SHOW_TEMP,      -1,   SHOW_TEMP,     SET_TEMP,   SET_TEMP,     SHOW_TIME,     SET_TEMP,   -1,
     /*  SET_TEMP */  ENT_SET_TEMP,  LP_SET_TEMP,      -1,   SHOW_TEMP,     SET_TEMP,   SET_TEMP,     SHOW_TEMP,    SHOW_TIME,   -1,
   };
@@ -55,7 +56,7 @@ int Atm_DisplayMode::event( int id ) {
 void Atm_DisplayMode::action( int id ) {
   switch ( id ) {
     case ENT_SHOW_TIME:
-    	timer_state_timeout.set(1000);
+    	timer_state_timeout.set(ATM_TIMER_OFF);
     	showTime();
         return;
     case LP_SHOW_TIME:

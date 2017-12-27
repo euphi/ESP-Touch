@@ -26,7 +26,7 @@
 
 /* Magic sequence for Autodetectable Binary Upload */
 #define FW_NAME "TouchCtrl-Ian-LED-Matrix"
-#define FW_VERSION "0.4.4"
+#define FW_VERSION "1.0.1"
 
 const char *__FLAGGED_FW_NAME = "\xbf\x84\xe4\x13\x54" FW_NAME "\x93\x44\x6b\xa7\x75";
 const char *__FLAGGED_FW_VERSION = "\x6a\x3f\x3e\x0e\xe1" FW_VERSION "\xb0\x30\x48\xd4\x1a";
@@ -48,24 +48,27 @@ Atm_TouchButton button_left;
 Atm_TouchButton button_right;
 //Atm_led myLed;
 
-enum  ETouchButton {BUT_UP = 0 , BUT_LEFT, BUT_DOWN, BUT_RIGHT, BUT_ENTER}; // PINout of Touchcontroller
+enum  ETouchButton {BUT_LEFT = 0, BUT_UP, BUT_RIGHT, BUT_DOWN, BUT_ENTER}; // PINout of Touchcontroller
 
 void setup() {
 	Serial.begin(74880);
 	Serial.println("Starting..");
 	Serial.flush();
-	delay(1000);
+	delay(100);
 	Homie.setLedPin(16, false);
 	Homie.disableResetTrigger();
 
 	Homie_setFirmware(FW_NAME, FW_VERSION);
 	Homie.setBroadcastHandler([](const String& level, const String& value) {
 		LN.logf(__PRETTY_FUNCTION__,LoggerNode::DEBUG, "Broadcast: %s: %s", level.c_str(), value.c_str());
-		atm_disp.setCurTime(value.toInt());
-		return true;
+		if (level.equalsIgnoreCase("time")) {
+			atm_disp.setCurTime(value.toInt());
+			return true;
+		}
+		return false;
 	});
 
-	//Wire.begin(SDA, SCL);
+	Wire.begin();
 	//Wire.setClockStretchLimit(2000);
 	touch.setup();
 	Homie.setup();
@@ -76,6 +79,8 @@ void setup() {
 //	// ---> Callbacks Inc and Dec
 	atm_disp.onInc([]( int idx, int v, int up ) {thermo.increase();},0);
 	atm_disp.onDec([]( int idx, int v, int up ) {thermo.decrease();},0);
+
+	thermo.setOnTempChangedFct([](int16_t newTemp) {atm_disp.but_down();}); //FIXME: Endless Loop!
 //
 //	// --> Connect buttons as input for state machine
 	button_up.begin(BUT_UP).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_UP).trace(Serial);

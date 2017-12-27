@@ -1,9 +1,9 @@
 {
-        "name": "Labor Iani",
-        "device_id": "labor",
+        "name": "Labor",
+        "device_id": "lab_thermo",
         "wifi": {
-                "ssid": "ARMBIAN",
-                "password": "12345678"
+                "ssid": "IA216",
+                "password": "WirSindAlleFrankfurterJungs!"
         },
         "mqtt": {
                 "host": "cubietruck",
@@ -16,6 +16,7 @@
         },
         "settings": {
                 "WS2812N_Pin": 12,
-		"WS2812N_Count": 24
+                "WS2812N_Count": 24,
+                "RGBfadeDelay": 10
         }
 }

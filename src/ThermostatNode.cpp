@@ -26,18 +26,21 @@ bool ThermostatNode::handleInput(const String& property, const HomieRange& range
 			return false;
 		}
 		setTemp = static_cast<int16_t> (newSetTemp * 10);
-		LN.logf(__PRETTY_FUNCTION__, LoggerNode::INFO, "Updated SetTemp to %d°cC.", setTemp);
+		LN.logf(__PRETTY_FUNCTION__, LoggerNode::INFO, "Updated SetTemp to %d°dC.", setTemp);
 		updateSetTemp();
 		return true;
 	}
 	else if (property.equals("Mode")){
 		LN.logf(__PRETTY_FUNCTION__, LoggerNode::INFO, "New Mode %s.", value.c_str());
-		for (uint_fast8_t id=ThermostatNode::Manual_ON; id < ThermostatNode::LAST; id++)
+		for (uint_fast8_t id=ThermostatNode::Manual_ON; id < ThermostatNode::LAST; id++) {
 			if (value.equalsIgnoreCase(mode_id[id])) {
 				mode = static_cast<EThermostatMode>(id);
-				break;
+				updateMode();
+				return true;
 			}
-		return true;
+		}
+		LN.logf(__PRETTY_FUNCTION__, LoggerNode::WARNING, "mode '%s' invalid", value.c_str());
+		return false;
 	}
 	else
 	{
@@ -50,4 +53,19 @@ void ThermostatNode::updateSetTemp() {
 	if(setTemp > 300) setTemp = 300;
 	const String setTempStr(static_cast<float>(setTemp)/10);
 	setProperty("SetTemp").setRetained(true).send(setTempStr);
+	if (onTempChangedFct) onTempChangedFct(setTemp);
 }
+
+void ThermostatNode::updateMode() {
+	setProperty("Mode").setRetained(true).send(mode_id[mode]);
+	if (onModeChangedFct) onModeChangedFct(mode);
+}
+
+void ThermostatNode::setOnModeChangedFct(std::function<void(EThermostatMode mode)> onModeChangedFct) {
+	this->onModeChangedFct = onModeChangedFct;
+}
+
+void ThermostatNode::setOnTempChangedFct(std::function<void(int16_t temp)> onTempChangedFct) {
+	this->onTempChangedFct = onTempChangedFct;
+}
+

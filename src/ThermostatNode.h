@@ -9,8 +9,22 @@
 #define SRC_THERMOSTATNODE_H_
 
 #include <HomieNode.hpp>
+#include <functional>
 
 class ThermostatNode: public HomieNode {
+private:
+	int16_t setTemp;
+	void updateSetTemp();
+
+	enum EThermostatMode {Manual_ON = 0, Manual_OFF, Auto_ON, Auto_OFF, LAST};
+	const String mode_id[LAST] = { "Manual_ON", "Manual_OFF", "Auto_ON", "Auto_OFF" };
+	EThermostatMode mode;
+
+	void updateMode();
+
+	std::function<void(int16_t temp)> onTempChangedFct;
+	std::function<void(EThermostatMode mode)> onModeChangedFct;
+
 public:
 	ThermostatNode();
 	int16_t getSetTemp() const {return setTemp;}
@@ -23,6 +37,9 @@ public:
 		updateSetTemp();
 	}
 
+	void setOnModeChangedFct(std::function<void(EThermostatMode mode)> onModeChangedFct);
+	void setOnTempChangedFct(std::function<void(int16_t temp)> onTempChangedFct);
+
 protected:
 //	  virtual void setup() {}
 //	  virtual void loop() {}
@@ -31,13 +48,6 @@ protected:
 			const String& value);
 
 
-private:
-	void updateSetTemp();
-	int16_t setTemp;
-
-	enum EThermostatMode {Manual_ON = 0, Manual_OFF, Auto_ON, Auto_OFF, LAST};
-	const String mode_id[LAST] = { "Manual_ON", "Manual_OFF", "Auto_ON", "Auto_OFF" };
-	EThermostatMode mode;
 };
 
 #endif /* SRC_THERMOSTATNODE_H_ */
