@@ -67,5 +67,5 @@ void LedMatrixNode::showDigits(int8_t uTen, int8_t uOne, int8_t lTen, int8_t lOn
 	if (uOne >= 0 && uTen < 10) matrix.drawBitmap(uOne == 1 ? -3 : -2, 0, digit[uOne], 8, 5, color_up);
 	if (lTen >= 0 && uTen < 10) matrix.drawBitmap(lTen == 1 ? -4 : -3, 3, digit[lTen], 8, 5, color_dn);
 	if (lOne >= 0 && uTen < 10) matrix.drawBitmap(lOne == 1 ? -1 :  0, 3, digit[lOne], 8, 5, color_dn);
-	matrix.show();
+	//matrix.show();
 }

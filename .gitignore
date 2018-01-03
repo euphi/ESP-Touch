@@ -1,3 +1,5 @@
 .pioenvs
 .piolibdeps
 /lib/
+.vscode
+.vscode/c_cpp_properties.json

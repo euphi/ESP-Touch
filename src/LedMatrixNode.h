@@ -24,6 +24,14 @@ public:
 	virtual bool handleInput(const String  &property, const HomieRange& range, const String &value) override;
 	void showDigits(int8_t uTen = -1, int8_t uOne = -1, int8_t lTen = -1, int8_t lOne = -1);
 
+	void setColorDn(uint16_t colorDn) {
+		color_dn = colorDn;
+	}
+
+	void setColorUp(uint16_t colorUp) {
+		color_up = colorUp;
+	}
+
 private:
 	Adafruit_NeoMatrix matrix;
 	uint16_t color_up;

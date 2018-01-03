@@ -10,7 +10,7 @@
 
 
 // Important note: This class does not update the touch data, it only reads the stored states.
-//   To update data, call the following methods cyclical
+//   To update data, call the following methods cyclically
 //   (the ESP_Touch example does this in the TochCtrl class)
 //
 //    if(MPR121.touchStatusChanged()) MPR121.updateTouchData();
@@ -18,7 +18,7 @@
 //    MPR121.updateFilteredData();
 
 void Atm_TouchButton::initButton() {
-	// Nothing do to (except not calling Atm_button::initButton)
+	// Nothing do to (except *not* calling Atm_button::initButton)
 	return;
 }
 

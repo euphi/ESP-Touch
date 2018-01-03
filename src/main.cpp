@@ -26,7 +26,7 @@
 
 /* Magic sequence for Autodetectable Binary Upload */
 #define FW_NAME "TouchCtrl-Ian-LED-Matrix"
-#define FW_VERSION "1.0.1"
+#define FW_VERSION "1.0.7"
 
 const char *__FLAGGED_FW_NAME = "\xbf\x84\xe4\x13\x54" FW_NAME "\x93\x44\x6b\xa7\x75";
 const char *__FLAGGED_FW_VERSION = "\x6a\x3f\x3e\x0e\xe1" FW_VERSION "\xb0\x30\x48\xd4\x1a";
@@ -58,6 +58,8 @@ void setup() {
 	Homie.setLedPin(16, false);
 	Homie.disableResetTrigger();
 
+	sensor.setTempAdjust(-3.3);
+
 	Homie_setFirmware(FW_NAME, FW_VERSION);
 	Homie.setBroadcastHandler([](const String& level, const String& value) {
 		LN.logf(__PRETTY_FUNCTION__,LoggerNode::DEBUG, "Broadcast: %s: %s", level.c_str(), value.c_str());
@@ -80,7 +82,8 @@ void setup() {
 	atm_disp.onInc([]( int idx, int v, int up ) {thermo.increase();},0);
 	atm_disp.onDec([]( int idx, int v, int up ) {thermo.decrease();},0);
 
-	thermo.setOnTempChangedFct([](int16_t newTemp) {atm_disp.but_down();}); //FIXME: Endless Loop!
+	thermo.setOnTempChangedFct([](int16_t newTemp) {atm_disp.show_settemp();});
+	thermo.setOnModeChangedFct([](ThermostatNode::EThermostatMode mode) {atm_disp.redraw();});
 //
 //	// --> Connect buttons as input for state machine
 	button_up.begin(BUT_UP).debounce(0).repeat(500, 333).onPress(atm_disp, Atm_DisplayMode::EVT_BUT_UP).trace(Serial);
